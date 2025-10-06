@@ -1,0 +1,281 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f 0%, #0a0a1a 100%);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ff3b30;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 5px rgba(255, 59, 48, 0.5);
+    text-align: center;
+}
+
+/* --- Header e Footer (Menu-Nav) --- */
+.navbar {
+    width: 100%;
+    background: rgba(46, 46, 68, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+    background-color: rgba(148, 15, 15, 0.1);
+}
+
+/* --- Layout Principal com Grid (Responsividade) --- */
+.container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px; 
+}
+
+/* Media Query para Tablets */
+@media (min-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* 2 Colunas */
+    }
+    
+    #chefe, #batalha, #sobre { 
+        grid-column: span 2; 
+    }
+}
+
+/* Media Query para Desktops */
+@media (min-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-areas:
+            "fila chefe" 
+            "fila ranking"
+            "sobre sobre";
+        grid-auto-rows: auto;
+    }
+
+    #fila { grid-area: fila; }
+    #chefe { grid-area: chefe; }
+    #ranking { grid-area: ranking; }
+    #sobre { grid-area: sobre; }
+}
+
+/* --- Estilo Card (Efeito Vidro e Flexbox Interno) --- */
+.card {
+    background: rgba(46, 46, 68, 0.4);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+}
+
+.card-title {
+    color: #0a84ff;
+    text-shadow: 0 0 3px rgba(10, 132, 255, 0.5);
+}
+
+.small-title {
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* --- Componentes --- */
+.pokemon-img {
+    width: 150px; 
+    height: 150px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 5px #f0f0f0);
+}
+
+.chefe-content .pokemon-img {
+    width: 140px; 
+    height: 140px;
+}
+
+.pokemon-info {
+    font-weight: bold;
+    color: #d1d1d1;
+}
+
+/* --- Botões e Busca --- */
+.main-btn, .secondary-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.main-btn { background-color: #30a0ff; color: #ffffff; }
+.main-btn:hover { background-color: #0a84ff; transform: translateY(-1px); }
+.secondary-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.secondary-btn:hover { background-color: rgba(255, 255, 255, 0.2); }
+.large-btn { font-size: 1.2em; padding: 15px 30px; }
+
+/* Busca (Flexbox) */
+.search-box {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+}
+#search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #30a0ff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    outline: none;
+}
+#search-btn {
+    max-width: none;
+    border-radius: 0 10px 10px 0;
+    width: auto;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+/* --- Lista de Cards da Fila (Flexbox Horizontal) --- */
+.fila-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    gap: 15px;
+    min-height: 140px;
+    align-items: center;
+    justify-content: center; 
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.desafiante-card {
+    flex-shrink: 0;
+    width: 100px;
+    padding: 8px;
+    background: rgba(46, 46, 68, 0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.desafiante-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 0 3px #f0f0f0);
+}
+
+.desafiante-card p {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #f0f0f0;
+    line-height: 1.2;
+}
+
+/* --- Ranking (Lista Simples) --- */
+.list-container {
+    list-style: none;
+    padding: 10px 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.list-container li {
+    padding: 8px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #c1c1c1;
+}
+
+/* Estilos para o texto de resultado da batalha */
+.battle-result .sucesso { color: #34c759; }
+.battle-result .erro { color: #ff3b30; }
+.battle-result { font-weight: bold; }
+
+
+/* --- Status e Footer --- */
+.status-message {
+    padding: 8px 15px; 
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 90%; 
+    text-align: center;
+    font-size: 0.9em; 
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+/* Esconde a caixa de status quando ela estiver vazia */
+.status-message:empty {
+    display: none;
+}
+
+.status-message.info { background-color: rgba(10, 132, 255, 0.5); border: 1px solid #0a84ff; }
+.status-message.sucesso { background-color: rgba(52, 199, 89, 0.5); border: 1px solid #34c759; }
+.status-message.erro { background-color: rgba(255, 59, 48, 0.5); border: 1px solid #ff3b30; }
+
+.footer {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 50px;
+    color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

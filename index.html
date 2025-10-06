@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Pokémon | Fila FIFO e Cache</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <h1>⚔️ Batalha Pokémon</h1>
+       
+    </header>
+
+    <main class="container">
+        <section id="chefe" class="card">
+            <h2 class="card-title">Chefe</h2>
+            <div class="chefe-content">
+                <img id="chefe-img" alt="Chefe Pokémon" class="pokemon-img">
+                <p id="chefe-info" class="pokemon-info"></p>
+            </div>
+        </section>
+
+        <section id="fila" class="card">
+            <h2 class="card-title">Fila de Desafiantes (FIFO)</h2>
+
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar Pokémon (Nome)">
+                <button id="search-btn" class="main-btn">Buscar & Enfileirar</button>
+            </div>
+
+            <button id="add-btn" class="secondary-btn">Adicionar Desafiante Aleatório</button>
+
+            <div id="fila-lista" class="fila-cards-container">
+                <p class="empty-list">Fila Vazia</p>
+            </div>
+
+            <button id="battle-btn" class="main-btn large-btn">Batalhar!</button>
+            <h3 class="card-title small-title">Resultado da Batalha</h3>
+            <p id="resultado" class="battle-result">Aguardando Desafiantes...</p>
+             <p id="status-message" class="status-message"></p>
+        </section>
+        
+
+        <section id="ranking" class="card">
+            <h2 class="card-title">Ranking de Vencedores</h2>
+            <ul id="ranking-lista" class="list-container">
+                <li class="empty-list">Nenhum Vencedor</li>
+            </ul>
+        </section>
+
+        <section id="sobre" class="card">
+            <h2 class="card-title">Sobre</h2>
+            <p>Este projeto demonstra a implementação de uma **Fila (FIFO)** e um sistema de **Cache** com **Busca
+                Binária** em JavaScript, usando a PokeAPI.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025| Projeto Pokémon - filas</p>
+    </footer>
+
+    <script type="module" src="Batlle.js"></script>
+</body>
+
+</html>
